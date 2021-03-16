@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 求字符串出现的次数
+    // const s1 = 'qqqqwwweerrggqqwwwwmmnnn';
+    // function totalStr(str) {
+
+    //   var obj = {}
+    //   for (let i = 0; i < str.length; i++) {
+    //     let k = str[i]
+    //     if(!obj[k]) {
+    //       obj[k] = 1
+    //     }else {
+    //       obj[k] ++
+    //     }
+
+    //   }
+    //   return obj
+    // }
+    // totalStr(s1)
+
+    // 求连续出现的次数
+    const s1 = 'qqqqwwweerrggqqwwwwmmnnn';
+    function totalStr(str) {
+      let temp = ''
+      var obj = {}
+      for (let i = 0; i < str.length; i++) {
+        let k = str[i]
+        if(k === temp) {
+          obj[k] ++
+
+        } else {
+          temp = k
+
+          obj[k] = 1
+        }
+
+      }
+      return Math.max(...Object.values(obj))
+    }
+  //  console.log( totalStr(s1))
+
+
+   function getLength(str) {
+     let temp = ''
+     const obj = {}
+     for(let i = 0; i < str.length; i ++) {
+       item = str[i]
+       if(temp === item) {
+        obj[item] ++
+       }else {
+        temp = item
+        obj[item] = 1
+       }
+     }
+     console.log(obj)
+   }
+   getLength(s1)
+
+  </script>
+</body>
+
+</html>

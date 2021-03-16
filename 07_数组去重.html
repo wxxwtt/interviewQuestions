@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const arr = [1, 2, 1, 4, 2, 6, 8]
+
+    // 方法一
+
+    // function unique (arr) {
+    //   return [...new Set(arr)]
+    // }
+    // const result = unique(arr)
+    // console.log(result)
+    
+    // 方法二
+
+    function unique(arr) {
+      const _arr = []
+      for(let i = 0; i < arr.length; i++) {
+        if(!_arr.includes(arr[i])) {
+          _arr.push(arr[i])
+        }
+      }
+      return _arr
+    }
+
+    const result = unique(arr)
+    console.log(result)
+
+  </script>
+</body>
+</html>

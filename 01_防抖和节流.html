@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <script>
+    //  函数防抖（debounce），就是指触发事件后，在 n 秒内函数只能执行一次，如果触发事件后在 n 秒内又触发了事件，则会重新计算函数延执行时间。
+    function debounce(callback, time) {
+      let timer = null
+
+      return function () {
+        if(timer) {
+          clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+          callback()
+        },time)
+      }
+    }
+    function getData() {
+      fetch('http://ttapi.research.itcast.cn/app/v1_0/user/channels').then(res => {
+        console.log(res)
+      })
+    }
+    var foo = debounce(getData, 2000)
+
+    // 函数节流
+    function thrott (callback, time) {
+      let timer = null
+      let lastTime = 0
+      return function () {
+        clearTimeout(timer)
+
+        let nowTime = Date.now()
+        if(nowTime - lastTime >= time) {
+          callback()
+          lastTime = nowTime
+          
+        }else {
+          timer = setTimeout(() => {
+            callback()
+          }, time)
+        }
+      }
+    }
+    var foo2 = thrott(getData, 1000)
+
+
+
+    // this 指向问题未优化
+   </script>
+</body>
+</html>

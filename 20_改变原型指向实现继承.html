@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Person (name, gender) {
+      this.name = name
+      this.gender = gender
+    }
+    Person.prototype.eat = function () {
+      console.log('吃饭')
+    }
+
+    function Student (score) {
+      this.score = score
+    }
+
+    Student.prototype = new Person('小明', '男')
+    Student.prototype.study = function () {
+      console.log('学习')
+    }
+    var str = new Student(50)
+    console.log(str.name, str.gender)
+    str.eat()
+    str.study()
+
+    // 以上方式有缺陷  创建的 是同一个小明
+  </script>
+</body>
+</html>

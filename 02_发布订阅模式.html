@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">{{ msg }}</div>
+  <script>
+    var app = document.querySelector('#app')
+    console.dir(document.querySelector('#app'))
+    function EventBus () {
+      this.eventType = {}
+    }
+
+    EventBus.prototype.$on = function(type, handler) {
+      this.eventType[type] = this.eventType[type] || []
+      this.eventType[type].push(handler)
+    }
+
+    EventBus.prototype.$emit = function(type, ...reset) {
+      this.eventType[type] && this.eventType[type].forEach(handler => {
+        handler.call(this, ...[reset])
+      })
+    }
+
+    let bus = new EventBus()
+    bus.$on('search', function(arguments) {
+      console.log(arguments)
+      console.log('search' +　'======')
+    })
+    // console.log(bus)
+    bus.$emit('search', () => {
+      console.log(12313)
+    })
+  </script>
+</body>
+</html>

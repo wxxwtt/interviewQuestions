@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    var obj1 = {
+      book: {
+        name: 'JS'
+      },
+      name: 'bar',
+      foo: function() {
+        console.log(this.name)
+      }
+    }
+
+
+    // function deepClone (obj) {
+    //   if( typeof obj !== 'object' ) return obj;
+    //   const _obj = obj instanceof Array ? [] : {}
+    //   for(var k in obj) {
+    //     if(obj.hasOwnProperty(k)) {
+    //       _obj[k] = typeof obj[k] === 'object' ? deepClone(obj[k]) : obj[k]
+
+    //     }
+    //   }
+    //   return _obj
+    // }
+    
+    function deepClone (obj) {
+      if( typeof obj !== 'object' ) return obj;
+      const _obj = obj instanceof Array ? [] : {}
+      for(var k in obj) {
+        if(obj.hasOwnProperty(k)) {
+          _obj[k] = typeof obj[k] === 'object' ? deepClone(obj[k]) : obj[k]
+
+        }
+      }
+      return _obj
+    }
+   var result = deepClone(obj1)
+   result.book.name = 'css'
+   console.log(result, obj1)
+
+   var name = 'hhh'
+   function foo () {
+     console.log(typeof name)
+    //  typeof name === 'undefi'
+     var name = 'kkkkkk'
+   }
+   foo()
+  </script>
+</body>
+</html>

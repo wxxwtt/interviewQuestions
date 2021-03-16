@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // const p = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve(2)
+    //   }, 1000);
+    // })
+
+    // p.then(value => {
+    //   return Promise.resolve(3)
+    // })
+    //   .then(value => {
+    //     const timesTamp = Date.now()
+    //     if (timesTamp % 2 === 0) {
+    //       return Promise.resolve('偶数：' + timesTamp)
+    //     } else {
+    //       return Promise.reject('奇数：' + timesTamp)
+    //     }
+
+    //   })
+    //   .then(value => {
+    //     const timesTamp = Date.now()
+    //     if (timesTamp % 2 === 0) {
+    //       return Promise.resolve('偶数：' + timesTamp)
+    //     } else {
+    //       return Promise.reject('奇数：' + timesTamp)
+    //     }
+    //   })
+    //   .catch(reason => {
+    //     console.log('catch---: ' + reason)
+    //   })
+
+
+    const p = new Promise((resolve, reject) => {
+      console.log(1)
+      resolve(2)
+    })
+    p.then(value => {
+      console.log(value)
+    })
+    console.log(3)
+  </script>
+</body>
+
+</html>

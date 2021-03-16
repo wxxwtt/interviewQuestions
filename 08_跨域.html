@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 方式一  JSONP  原理 script标签不收同源策略的限制 
+      // 实现  动态创建一个script标签 设置src 的值 并传入一个callback函数 
+      // script 标签插入到body中  后端接受到这个请求后 获取callback函数 然后吧查询到结果
+      // 放到这个callback函数中 并返回这个函数的调用  前端拿到返回的结果 getBooks({"nama":"JS高三"})
+      // 会调用已经定义好的回调函数
+    var script = document.createElement('script')
+    script.src = 'http://127.0.0.1:3000/api/books?callback=getBooks'
+    document.body.appendChild(script)
+    function getBooks(data) {
+      console.log(data)
+    }
+
+    // 方式二  CORS  即服务器设置请求头 允许该网站请求
+
+    // 方式三  proxy 代理实现  nginx  vue-cli devServe: {}
+    fetch('http://127.0.0.1:3000/api/proxy')
+  </script>
+</body>
+</html>

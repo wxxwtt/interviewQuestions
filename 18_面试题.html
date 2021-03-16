@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 扁平化数组
+    const data = [{
+      id: 1,
+      title: "课程 1",
+      children: [{ id: 4, title: "课程 1-1" },
+      {
+        id: 5,
+        title: "课程 1-2",
+        children: [{ id: 6, title: "课程 1-2-1" },
+        { id: 7, title: "课程 1-2-2" },
+        ],
+      },
+      ],
+    },
+    { id: 2, title: "课程 2" },
+    { id: 3, title: "课程 3" },
+    ];
+    function flat(arr) {
+      const _arr = []
+      arr.forEach(item => {
+        _arr.push({ id: item.id, title: item.title })
+        if (item.children && item.children.length) {
+          _arr.push(...flat(item.children))
+        }
+      });
+      return _arr
+    }
+    flat(data)
+    function fd(callback, time) {
+      let timer = null
+      return function () {
+        if (timer) {
+          clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+          callback()
+        }, time)
+      }
+    }
+
+
+    async function async1() {
+      console.log('async1 start')
+      await async2(); console.log('async1 end')
+    }
+    async function async2() {
+      console.log('async2')
+    }
+    console.log('script start')
+    setTimeout(function () {
+      console.log('setTimeout')
+    }, 0)
+    async1()
+    new Promise(function (resolve) {
+      console.log('promise1')
+      resolve()
+    }).then(function () {
+      console.log('promise2')
+    })
+    console.log('script end')
+  </script>
+</body>
+
+</html>

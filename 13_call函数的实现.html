@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // call 函数 模拟实现
+    var foo = {
+      name: 'foo'
+    }
+
+    function bar (a, b, c) {
+      console.log(this.name)
+    }
+    // bar.call(1, 1, 2, 3)
+
+    Function.prototype.myCall = function (context, ...reset) {
+      var context = context || window
+      context.fn = this 
+      context.fn(...reset)
+      delete context.fn
+      return context
+    }
+    bar.myCall(foo)
+    // console.log(window.name)
+  </script>
+</body>
+</html>

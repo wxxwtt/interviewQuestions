@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // apply 函数 模拟实现
+    var foo = {
+      name: 'foo'
+    }
+
+    function bar (params) {
+      console.log(params)
+      // console.log(this)
+      console.log(this.name)
+    }
+    bar.call(foo, [1, 2, 3])
+
+    Function.prototype.myApply = function (context, arr) {
+      var context = context || window
+      context.fn = this 
+      context.fn(arr)
+      delete context.fn
+      return context
+    }
+    bar.myApply(foo, [1, 2, 3])
+    // console.log(window.name)
+  </script>
+</body>
+</html>

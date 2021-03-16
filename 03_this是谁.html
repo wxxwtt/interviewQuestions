@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // 普通函数this指向 既 function(){}  不包含箭头函数 () => {}
+
+    // 1.  
+    //     函数直接用圆括号运行, 上下文就是window
+
+    //       fn() 上线文是window
+
+    // 2. 
+
+    //     对象打点调用函数, 上下文就是这个对象
+
+    //     obj.fn()  上下文就是window
+
+    
+
+    // 3.  
+    //    数组(类数组对象)中枚举函数, 上下文是这个数组(类数组对象)
+
+    //   arr = [1, 2, function(){ console.log(this) }]
+    //   arr[2]()   上下文是这个数组
+    
+    // 4. 定时器里调用函数 上下文是window
+
+    // 5. 被当作了事件处理函数, 上下文就是触发事件的DOM元素
+
+    function Foo () {
+      function getName() {
+        alert(1)
+      }
+      return this
+    }
+    Foo.getName = function() {
+      alert(2)
+    }
+    Foo.prototype.getName = function() {
+      alert(3)
+    }
+    var getName = function () {
+      alert(4)
+    }
+    function getName () {
+      alert(5)
+    }
+
+    getName()
+    Foo().getName()
+    new Foo().getName()
+    new Foo.getName()
+    new new Foo().getName()
+
+
+
+
+
+  </script>
+</body>
+</html>
