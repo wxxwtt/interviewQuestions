@@ -29,6 +29,14 @@
     fun.apply(null, [1, 2, 3])
     // apply 方法 第一个参数 this的指向值  非严格模式 null或者undefined 会被自动指向window 
     fun.call(obj, 1, 2 ,3)
+    const obj2 = {
+      name: 'xx',
+      say: function () {
+        setTimeout(function () {
+          console.log(this.name)
+        })
+      }
+    }
   </script>
 </body>
 </html>
