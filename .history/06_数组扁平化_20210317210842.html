@@ -37,6 +37,15 @@
   //   }
   //  console.log(_flat(arr))
 
+      // 方法四 
+      function _flat (arr) {
+        let _arr = []
+        while(arr.some(item => Array.isArray(item))) {
+          _arr = [].push(...arr)
+        }
+        return _arr
+      }
+      console.log(_flat(arr))
   </script>
 </body>
 </html>

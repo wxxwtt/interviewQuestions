@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* .container {
+      position: relative;
+    } */
+    .outer {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 100px;
+      height: 100px;
+      background: yellowgreen;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+    .inner {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 50px;
+      height: 50px;
+      background: skyblue;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+    .arrow {
+      border-left: 0px dashed transparent;
+      border-right: 0px dashed transparent;
+      border-bottom: 10px dashed purple;
+      width: 0;
+      height: 0;
+      font-size: 10;
+      /* overflow: hidden; */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="outer">
+      <div class="inner"></div>
+    </div>
+  </div>
+  <div class="arrow"></div>
+</body>
+</html>

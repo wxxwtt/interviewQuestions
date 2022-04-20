@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+      /**
+   * 统计数组中每个字符串出现次数
+   * @param string[] strs: 字符串数组, 例如 ['aa', 'ab', 'ab', 'cc', 'cba']
+   * @return {[key: string]: number} 出现次数对象, 例如 { aa: 1, ab: 2, cc: 1, cba: 1 }
+   */
+  // frequencyMap: strs => {
+  //   //TODO your code goes here...
+  //   return null;
+  // }
+  // const strs = ['aa', 'ab', 'ab', 'cc', 'cba', 'aa']
+
+  // function frequencyMap (strs) {
+  //   var obj = {}
+  //   for(let i = 0; i < strs.length; i++) {
+  //     let k = strs[i]
+  //     if(obj[k]) {
+  //       obj[k] ++
+  //     }else {
+  //       obj[k] = 1
+  //     }
+  //   }
+  //   return obj
+  // }
+  // console.log(frequencyMap(strs)) 
+
+
+
+
+    /**
+   * 会议室, 输入是一个数组, 所有会议的开始和结束时间. 输出一共需要多少个会议室
+   * @param meetings: 二维数组, 例 [[10, 20], [20, 30]],
+   * @return int: 需要的会议室的个数, 例 1
+   * 另一个测试用例: [[10,20], [19,30]] => 2
+   */
+  const meetings = [[10,20], [19,30]] 
+
+  function minRequiredMeetingsRooms (meetings) {
+
+    if(meetings.length === 1) return 1
+    meetings.reduce((pre, next) => {
+      console.log(pre)
+    }, 0);
+  }
+  minRequiredMeetingsRooms(meetings)
+  </script>
+</body>
+</html>
